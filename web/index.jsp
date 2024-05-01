@@ -39,7 +39,7 @@
             <div class="menu-items">
                 <ul class="nav-links">
                     <li>
-                        <a href="./routes/get.html">
+                        <a href="./redirecciones?variable=amigo">
                             <i class="uil uil-apps"></i>
                             <span class="link-name">Guests</span>
                         </a>
