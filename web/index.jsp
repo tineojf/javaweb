@@ -1,11 +1,5 @@
 <%@page import="persistence.dao.AsociadoDAO"%>
 <%@page import="persistence.models.AsociadoModel"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="persistence.DBConnector"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.SQLException"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
