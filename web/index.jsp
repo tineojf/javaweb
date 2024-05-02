@@ -41,19 +41,19 @@
             <div class="menu-items">
                 <ul class="nav-links">
                     <li>
-                        <a href="./svindex?page=get">
+                        <a href="./svroutes?page=get">
                             <i class="uil uil-apps"></i>
                             <span class="link-name">Associates</span>
                         </a>
                     </li>
                     <li>
-                        <a href="./svindex?page=post">
+                        <a href="./svroutes?page=post">
                             <i class="uil uil-thumbs-up"></i>
                             <span class="link-name">Create</span>
                         </a>
                     </li>
                     <li>
-                        <a href="./svindex?page=delete">
+                        <a href="./svroutes?page=delete">
                             <i class="uil uil-chart"></i>
                             <span class="link-name">Delete</span>
                         </a>

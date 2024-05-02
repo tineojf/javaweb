@@ -27,7 +27,7 @@
         <nav>
             <div class="logo-name">
                 <div class="logo-image">
-                    <img src="../images/bar.png" alt="" />
+                    <img src="../images/bar.png" alt="logo" />
                 </div>
 
                 <span class="logo_name">Final Project</span>
@@ -36,19 +36,19 @@
             <div class="menu-items">
                 <ul class="nav-links">
                     <li>
-                        <a href="../index.jsp">
+                        <a href="../svroutes?page=index">
                             <i class="uil uil-estate"></i>
                             <span class="link-name">Dahsboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../routes/get.html">
+                        <a href="../svroutes?page=get">
                             <i class="uil uil-apps"></i>
-                            <span class="link-name">Guests</span>
+                            <span class="link-name">Associates</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../routes/delete.html">
+                        <a href="../svroutes?page=delete">
                             <i class="uil uil-chart"></i>
                             <span class="link-name">Delete</span>
                         </a>
@@ -80,7 +80,7 @@
                 <div class="activity mr">
                     <div class="title">
                         <i class="uil uil-thumbs-up"></i>
-                        <span class="text">Create Guest</span>
+                        <span class="text">Create Associate</span>
                     </div>
                 </div>
 

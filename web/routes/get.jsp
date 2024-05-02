@@ -27,19 +27,19 @@
             <div class="menu-items">
                 <ul class="nav-links">
                     <li>
-                        <a href="../svget?page=index">
+                        <a href="../svroutes?page=index">
                             <i class="uil uil-estate"></i>
                             <span class="link-name">Dahsboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../svget?page=post">
+                        <a href="../svroutes?page=post">
                             <i class="uil uil-thumbs-up"></i>
                             <span class="link-name">Create</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../svget?page=delete">
+                        <a href="../svroutes?page=delete">
                             <i class="uil uil-chart"></i>
                             <span class="link-name">Delete</span>
                         </a>
@@ -71,7 +71,7 @@
                 <div class="activity mr">
                     <div class="title">
                         <i class="uil uil-apps"></i>
-                        <span class="text">Guests</span>
+                        <span class="text">Associates</span>
                     </div>
 
                     <div class="activity-data" id="get-guest">

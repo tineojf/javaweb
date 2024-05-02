@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "svindex", urlPatterns = {"/svindex"})
-public class svindex extends HttpServlet {
+@WebServlet(name = "svroutes", urlPatterns = {"/svroutes"})
+public class svroutes extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -16,10 +16,12 @@ public class svindex extends HttpServlet {
         String page = request.getParameter("page");
 
         switch (page) {
-            case "get" ->
-                response.sendRedirect("routes/get.jsp");
+            case "index" ->
+                response.sendRedirect("index.jsp");
             case "post" ->
                 response.sendRedirect("routes/create.jsp");
+            case "get" ->
+                response.sendRedirect("routes/get.jsp");
             case "delete" ->
                 response.sendRedirect("routes/delete.jsp");
             default ->
