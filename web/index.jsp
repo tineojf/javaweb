@@ -39,19 +39,19 @@
             <div class="menu-items">
                 <ul class="nav-links">
                     <li>
-                        <a href="./redirecciones?variable=amigo">
+                        <a href="./svindex?page=get">
                             <i class="uil uil-apps"></i>
-                            <span class="link-name">Guests</span>
+                            <span class="link-name">Associates</span>
                         </a>
                     </li>
                     <li>
-                        <a href="./routes/create.html">
+                        <a href="./svindex?page=post">
                             <i class="uil uil-thumbs-up"></i>
                             <span class="link-name">Create</span>
                         </a>
                     </li>
                     <li>
-                        <a href="./routes/delete.html">
+                        <a href="./svindex?page=delete">
                             <i class="uil uil-chart"></i>
                             <span class="link-name">Delete</span>
                         </a>
@@ -89,8 +89,8 @@
                     <div class="boxes">
                         <div class="box box1">
                             <i class="uil uil-apps"></i>
-                            <span class="text">Total guests</span>
-                            <span class="number" id="get-guests">50,120</span>
+                            <span class="text">Total associates</span>
+                            <span class="number" id="get-associates">50,120</span>
                         </div>
                         <div class="box box2">
                             <i class="uil uil-schedule"></i>

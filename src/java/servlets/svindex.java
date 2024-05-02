@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "redirecciones", urlPatterns = {"/redirecciones"})
-public class redirecciones extends HttpServlet {
+@WebServlet(name = "svindex", urlPatterns = {"/svindex"})
+public class svindex extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
