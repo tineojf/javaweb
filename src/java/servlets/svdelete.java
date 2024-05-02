@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import persistence.dao.AsociadoDAO;
-import persistence.models.AsociadoModel;
 
 @WebServlet(name = "svdelete", urlPatterns = {"/svdelete"})
 public class svdelete extends HttpServlet {

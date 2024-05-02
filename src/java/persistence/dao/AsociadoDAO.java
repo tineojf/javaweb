@@ -197,4 +197,55 @@ public class AsociadoDAO {
         }
         return "500: Error";
     }
+
+    public String update(int id, AsociadoModel _item) {
+        AsociadoModel result = this.findByID(id);
+        if (result == null) {
+            System.out.println("UPDATE - NOT FOUND");
+            return "404: NOT FOUND";
+        }
+
+        String query = "UPDATE ASOCIADOS SET "
+                + "NOMBRE=?, APELLIDOS=?, ESTADO_CIVIL=?, "
+                + "EPS=?, DNI=?, APORTES=?, "
+                + "NIVEL_ESTUDIO=?, SALARIO=?, NUMERO_HIJOS=?, "
+                + "TELEFONO=?, DIRECCION=? WHERE CODIGO=?";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            if (_item.getEps() == null) {
+                _item.setEps("No Definido");
+            }
+            if (_item.getNivelEstudio() == null) {
+                _item.setNivelEstudio("No Definido");
+            }
+            if (_item.getDireccion() == null) {
+                _item.setDireccion("No Definido");
+            }
+            preparedStatement.setString(1, _item.getNombre());
+            preparedStatement.setString(2, _item.getApellidos());
+            preparedStatement.setString(3, _item.getEstadoCivil());
+            preparedStatement.setString(4, _item.getEps());
+            preparedStatement.setString(5, _item.getDni());
+            preparedStatement.setDouble(6, _item.getAportes());
+            preparedStatement.setString(7, _item.getNivelEstudio());
+            preparedStatement.setDouble(8, _item.getSalario());
+            preparedStatement.setInt(9, _item.getNumeroHijos());
+            preparedStatement.setString(10, _item.getTelefono());
+            preparedStatement.setString(11, _item.getDireccion());
+            preparedStatement.setInt(12, _item.getCodigo());
+
+            int rowsUpdated = preparedStatement.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("PUT - UPDATED");
+                return "202: UPDATED";
+            } else {
+                System.out.println("PUT - NOT UPDATED");
+                return "400: NOT UPDATED";
+            }
+        } catch (SQLException e) {
+            System.err.println("PUT error: " + e.getMessage());
+            return "500 " + e.getMessage();
+        }
+    }
+
 }

@@ -15,6 +15,8 @@
             String logoPath = request.getContextPath() + "/images/bar.png";
             String profilePath = request.getContextPath() + "/images/profile.png";
             String servletPath = request.getContextPath() + "/svroutes";
+            String svcreatePath = request.getContextPath() + "/svcreate";
+            String svupdatePath = request.getContextPath() + "/svupdate";
         %>
         <link rel="stylesheet" href="<%= cssPath%>" />
         <link
@@ -100,7 +102,15 @@
                             <%
                                 for (AsociadoModel associate : associateList) {
                             %>
-                            <span class="data-list"><%= associate.getCodigo()%></span>
+                            <span class="data-list">
+                                <strong>
+                                    <a href='<%= svupdatePath + "?id=" + associate.getCodigo()%>'
+                                       style="text-decoration: none"
+                                       >
+                                        <%= associate.getCodigo()%>
+                                    </a>
+                                </strong>
+                            </span>
                             <% }%>
                         </div>
                         <div class="data">
