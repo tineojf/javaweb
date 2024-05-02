@@ -10,7 +10,7 @@
         <!-- Stylesheet & icons -->
         <%
             String cssPath = request.getContextPath() + "/assets/style.css";
-            String jsPath = request.getContextPath() + "/assets/script.css";
+            String jsPath = request.getContextPath() + "/assets/script.js";
             String logoPath = request.getContextPath() + "/images/bar.png";
             String profilePath = request.getContextPath() + "/images/profile.png";
             String servletPath = request.getContextPath() + "/svroutes";
@@ -37,6 +37,11 @@
         <%
             AsociadoDAO dao = new AsociadoDAO();
         %>
+        <script>
+            <% if (request.getAttribute("mensaje") != null) {%>
+            alert("<%= request.getAttribute("mensaje")%>");
+            <% }%>
+        </script>
         <nav>
             <div class="logo-name">
                 <div class="logo-image">
@@ -94,11 +99,6 @@
                     <div class="title">
                         <i class="uil uil-thumbs-up"></i>
                         <span class="text">Create Associate</span>
-                        <script>
-                            <% if (request.getAttribute("mensaje") != null) {%>
-                            alert("<%= request.getAttribute("mensaje")%>");
-                            <% }%>
-                        </script>
                     </div>
                 </div>
 

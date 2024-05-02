@@ -6,7 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <!-- Stylesheet & icons -->
-        <link rel="stylesheet" href="../assets/style.css" />
+        <%
+            String cssPath = request.getContextPath() + "/assets/style.css";
+            String jsPath = request.getContextPath() + "/assets/script.js";
+            String logoPath = request.getContextPath() + "/images/bar.png";
+            String profilePath = request.getContextPath() + "/images/profile.png";
+            String servletPath = request.getContextPath() + "/svroutes";
+        %>
+        <link rel="stylesheet" href="<%= cssPath%>" />
+
         <link
             rel="stylesheet"
             href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
@@ -18,7 +26,7 @@
         <nav>
             <div class="logo-name">
                 <div class="logo-image">
-                    <img src="../images/bar.png" alt="logo" />
+                    <img src="<%= logoPath%>" alt="logo" />
                 </div>
 
                 <span class="logo_name">Final Project</span>
@@ -27,19 +35,19 @@
             <div class="menu-items">
                 <ul class="nav-links">
                     <li>
-                        <a href="../svroutes?page=index">
+                        <a href='<%= servletPath + "?page=index"%>'>
                             <i class="uil uil-estate"></i>
                             <span class="link-name">Dahsboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../svroutes?page=get">
+                        <a href='<%= servletPath + "?page=get"%>'>
                             <i class="uil uil-apps"></i>
                             <span class="link-name">Associates</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../svroutes?page=post">
+                        <a href='<%= servletPath + "?page=post"%>'>
                             <i class="uil uil-thumbs-up"></i>
                             <span class="link-name">Create</span>
                         </a>
@@ -64,7 +72,7 @@
         <div class="dashboard">
             <div class="top">
                 <i class="uil uil-bars sidebar-toggle"></i>
-                <img src="../images/profile.png" alt="profile" />
+                <img src="<%= profilePath%>" alt="profile" />
             </div>
 
             <div class="dash-content">
@@ -96,6 +104,6 @@
             </div>
         </div>
         <!-- Javascript -->
-        <script src="../assets/script.js"></script>
+        <script src="<%= jsPath%>"></script>
     </body>
 </html>
