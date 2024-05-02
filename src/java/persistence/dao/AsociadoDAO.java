@@ -11,10 +11,13 @@ import persistence.models.AsociadoModel;
 
 public class AsociadoDAO {
 
-    private static final DBConnector connector = DBConnector.getInstance();
-    private static final Connection connection = connector.getConnection();
+    private final DBConnector connector = DBConnector.getInstance();
+    private final Connection connection = connector.getConnection();
 
-    public static ArrayList<AsociadoModel> findAll() {
+    public AsociadoDAO() {
+    }
+
+    public ArrayList<AsociadoModel> findAll() {
         ArrayList<AsociadoModel> listDB = new ArrayList<>();
         String query = "SELECT * FROM ASOCIADOS";
 
@@ -43,4 +46,37 @@ public class AsociadoDAO {
             return null;
         }
     }
+
+    public AsociadoModel findByID(int id) {
+        String query = "SELECT * FROM ASOCIADOS WHERE CODIGO = ?";
+
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            ResultSet result = statement.executeQuery();
+
+            if (result.next()) {
+                AsociadoModel item = new AsociadoModel(
+                        result.getInt("CODIGO"),
+                        result.getString("NOMBRE"),
+                        result.getString("APELLIDOS"),
+                        result.getString("ESTADO_CIVIL"),
+                        result.getString("EPS"),
+                        result.getString("DNI"),
+                        result.getDouble("APORTES"),
+                        result.getString("NIVEL_ESTUDIO"),
+                        result.getDouble("SALARIO"),
+                        result.getInt("NUMERO_HIJOS"),
+                        result.getString("TELEFONO"),
+                        result.getString("DIRECCION")
+                );
+                return item;
+            }
+
+            return null;
+        } catch (SQLException e) {
+            System.out.println("GET error: " + e.getMessage());
+            return null;
+        }
+    }
+
 }

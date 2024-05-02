@@ -1,8 +1,10 @@
+<%@page import="persistence.dao.AsociadoDAO"%>
 <%@page import="persistence.models.AsociadoModel"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="persistence.DBConnector"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.SQLException"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -23,9 +25,9 @@
     </head>
     <body>
         <%
-            DBConnector connector = DBConnector.getInstance();
-            Connection connection = connector.getConnection();
+            AsociadoDAO dao = new AsociadoDAO();
         %>
+
 
         <nav>
             <div class="logo-name">
@@ -111,30 +113,31 @@
                         <span class="text">Admin</span>
                     </div>
 
-                    <div class="activity-data" id="get-first-guest">
+                    <div class="activity-data" id="1">
+                        <%AsociadoModel usuarioAdmin = dao.findByID(1);%>
                         <div class="data names">
                             <span class="data-title"><strong>Código</strong></span>
-                            <span class="data-list">1</span>
+                            <span class="data-list"><%= usuarioAdmin.getCodigo()%></span>
                         </div>
                         <div class="data names">
                             <span class="data-title"><strong>DNI</strong></span>
-                            <span class="data-list">14785412</span>
+                            <span class="data-list"><%= usuarioAdmin.getDni()%></span>
                         </div>
                         <div class="data names">
                             <span class="data-title"><strong>Name</strong></span>
-                            <span class="data-list">Franco Tineo</span>
+                            <span class="data-list"><%= usuarioAdmin.getNombreCompleto()%></span>
                         </div>
                         <div class="data names">
                             <span class="data-title"><strong>Estado Civil</strong></span>
-                            <span class="data-list">Soltero</span>
+                            <span class="data-list"><%= usuarioAdmin.getEstadoCivil()%></span>
                         </div>
                         <div class="data names">
                             <span class="data-title"><strong>EPS</strong></span>
-                            <span class="data-list">Essalud</span>
+                            <span class="data-list"><%= usuarioAdmin.getEps()%></span>
                         </div>
                         <div class="data names">
                             <span class="data-title"><strong>Teléfono</strong></span>
-                            <span class="data-list">999000000</span>
+                            <span class="data-list"><%= usuarioAdmin.getTelefono()%></span>
                         </div>
                     </div>
                 </div>
