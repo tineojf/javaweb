@@ -1,3 +1,6 @@
+<%@page import="persistence.dao.AsociadoDAO"%>
+<%@page import="persistence.models.AsociadoModel"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -15,6 +18,11 @@
         <title>Guests</title>
     </head>
     <body>
+        <%
+            AsociadoDAO dao = new AsociadoDAO();
+            ArrayList<AsociadoModel> associateList = dao.findAll();
+        %>
+
         <nav>
             <div class="logo-name">
                 <div class="logo-image">
@@ -77,75 +85,99 @@
                     <div class="activity-data" id="get-guest">
                         <div class="data">
                             <span class="data-title"><strong>ID</strong></span>
-                            <span class="data-list">1</span>
-                            <span class="data-list">2</span>
-                            <span class="data-list">3</span>
+                            <%
+                                for (AsociadoModel associate : associateList) {
+                            %>
+                            <span class="data-list"><%= associate.getCodigo()%></span>
+                            <% }%>
                         </div>
                         <div class="data">
                             <span class="data-title"><strong>Nombre</strong></span>
-                            <span class="data-list">AA</span>
-                            <span class="data-list">BB</span>
-                            <span class="data-list">CC</span>
+                            <%
+                                for (AsociadoModel associate : associateList) {
+                            %>
+                            <span class="data-list"><%= associate.getNombre()%></span>
+                            <% }%>
                         </div>
                         <div class="data">
                             <span class="data-title"><strong>Apellidos</strong></span>
-                            <span class="data-list">AAA</span>
-                            <span class="data-list">BBB</span>
-                            <span class="data-list">CCC</span>
+                            <%
+                                for (AsociadoModel associate : associateList) {
+                            %>
+                            <span class="data-list"><%= associate.getApellidos()%></span>
+                            <% }%>
                         </div>
                         <div class="data">
                             <span class="data-title"><strong>Estado</strong></span>
-                            <span class="data-list">Soltero</span>
-                            <span class="data-list">Casado</span>
-                            <span class="data-list">Casado</span>
+                            <%
+                                for (AsociadoModel associate : associateList) {
+                            %>
+                            <span class="data-list"><%= associate.getEstadoCivil()%></span>
+                            <% }%>
                         </div>
                         <div class="data">
                             <span class="data-title"><strong>EPS</strong></span>
-                            <span class="data-list">Essalud</span>
-                            <span class="data-list">No definido</span>
-                            <span class="data-list">SIS</span>
+                            <%
+                                for (AsociadoModel associate : associateList) {
+                            %>
+                            <span class="data-list"><%= associate.getEps()%></span>
+                            <% }%>
                         </div>
                         <div class="data">
                             <span class="data-title"><strong>DNI</strong></span>
-                            <span class="data-list">1728123</span>
-                            <span class="data-list">1728234</span>
-                            <span class="data-list">1728765</span>
+                            <%
+                                for (AsociadoModel associate : associateList) {
+                            %>
+                            <span class="data-list"><%= associate.getDni()%></span>
+                            <% }%>
                         </div>
                         <div class="data">
                             <span class="data-title"><strong>Aportes</strong></span>
-                            <span class="data-list">100.00</span>
-                            <span class="data-list">123.00</span>
-                            <span class="data-list">12.50</span>
+                            <%
+                                for (AsociadoModel associate : associateList) {
+                            %>
+                            <span class="data-list"><%= associate.getAportes()%></span>
+                            <% }%>
                         </div>
                         <div class="data">
                             <span class="data-title"><strong>Estudios</strong></span>
-                            <span class="data-list">Licenciado</span>
-                            <span class="data-list">No definido</span>
-                            <span class="data-list">No definido</span>
+                            <%
+                                for (AsociadoModel associate : associateList) {
+                            %>
+                            <span class="data-list"><%= associate.getNivelEstudio()%></span>
+                            <% }%>
                         </div>
                         <div class="data">
                             <span class="data-title"><strong>Salario</strong></span>
-                            <span class="data-list">10000.00</span>
-                            <span class="data-list">1244.00</span>
-                            <span class="data-list">1500.00</span>
+                            <%
+                                for (AsociadoModel associate : associateList) {
+                            %>
+                            <span class="data-list"><%= associate.getSalario()%></span>
+                            <% }%>
                         </div>
                         <div class="data">
                             <span class="data-title"><strong>Hijos</strong></span>
-                            <span class="data-list">0</span>
-                            <span class="data-list">1</span>
-                            <span class="data-list">0</span>
+                            <%
+                                for (AsociadoModel associate : associateList) {
+                            %>
+                            <span class="data-list"><%= associate.getNumeroHijos()%></span>
+                            <% }%>
                         </div>
                         <div class="data">
                             <span class="data-title"><strong>Teléfono</strong></span>
-                            <span class="data-list">999000111</span>
-                            <span class="data-list">999000222</span>
-                            <span class="data-list">999000333</span>
+                            <%
+                                for (AsociadoModel associate : associateList) {
+                            %>
+                            <span class="data-list"><%= associate.getTelefono()%></span>
+                            <% }%>
                         </div>
                         <div class="data">
                             <span class="data-title"><strong>Dirección</strong></span>
-                            <span class="data-list">Avenida principal</span>
-                            <span class="data-list">Calle 2</span>
-                            <span class="data-list">Avenida 3</span>
+                            <%
+                                for (AsociadoModel associate : associateList) {
+                            %>
+                            <span class="data-list"><%= associate.getDireccion()%></span>
+                            <% }%>
                         </div>
                     </div>
                 </div>

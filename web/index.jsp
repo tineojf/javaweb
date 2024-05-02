@@ -1,6 +1,5 @@
 <%@page import="persistence.dao.AsociadoDAO"%>
 <%@page import="persistence.models.AsociadoModel"%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -18,10 +17,7 @@
         <title>Project - Software Development I</title>
     </head>
     <body>
-        <%
-            AsociadoDAO dao = new AsociadoDAO();
-        %>
-
+        <% AsociadoDAO dao = new AsociadoDAO(); %>
 
         <nav>
             <div class="logo-name">
