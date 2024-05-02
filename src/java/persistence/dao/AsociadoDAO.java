@@ -141,4 +141,60 @@ public class AsociadoDAO {
         }
     }
 
+    public AsociadoModel findByDni(String dni) {
+        String query = "SELECT * FROM ASOCIADOS WHERE DNI = ? LIMIT 1";
+
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, dni);
+            ResultSet result = statement.executeQuery();
+
+            if (result.next()) {
+                AsociadoModel item = new AsociadoModel(
+                        result.getInt("CODIGO"),
+                        result.getString("NOMBRE"),
+                        result.getString("APELLIDOS"),
+                        result.getString("ESTADO_CIVIL"),
+                        result.getString("EPS"),
+                        result.getString("DNI"),
+                        result.getDouble("APORTES"),
+                        result.getString("NIVEL_ESTUDIO"),
+                        result.getDouble("SALARIO"),
+                        result.getInt("NUMERO_HIJOS"),
+                        result.getString("TELEFONO"),
+                        result.getString("DIRECCION")
+                );
+                return item;
+            }
+
+            return null;
+        } catch (SQLException e) {
+            System.out.println("GET error: " + e.getMessage());
+            return null;
+        }
+    }
+
+    public String delete(String dni) {
+        AsociadoModel result = this.findByDni(dni);
+
+        if (result == null) {
+            System.out.println("DELETE - NOT FOUND");
+            return "404: NOT FOUND";
+        }
+
+        String query = "DELETE FROM ASOCIADOS WHERE _column = ? LIMIT 1";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, dni);
+
+            int rowsDeleted = preparedStatement.executeUpdate();
+
+            if (rowsDeleted > 0) {
+                System.out.println("DELETE - DELETED");
+                return "202: DELETED";
+            }
+        } catch (SQLException e) {
+            System.err.println("DELETE error: " + e.getMessage());
+            return "500:" + e.getMessage();
+        }
+        return "500: Error";
+    }
 }
