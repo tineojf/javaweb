@@ -92,7 +92,8 @@
                         <div class="box box1">
                             <i class="uil uil-apps"></i>
                             <span class="text">Total associates</span>
-                            <span class="number" id="get-associates">50,120</span>
+                            <% int count = dao.countAll();%>
+                            <span class="number"><%= count%></span>
                         </div>
                         <div class="box box2">
                             <i class="uil uil-schedule"></i>

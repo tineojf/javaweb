@@ -47,6 +47,24 @@ public class AsociadoDAO {
         }
     }
 
+    public int countAll() {
+        String query = "SELECT COUNT(CODIGO) AS 'COUNT' FROM ASOCIADOS";
+        int count = 0;
+
+        try {
+            ResultSet result = connection.createStatement().executeQuery(query);
+
+            while (result.next()) {
+                count = result.getInt("COUNT");
+            }
+
+            return count;
+        } catch (SQLException e) {
+            System.out.println("GET error: " + e.getMessage());
+            return count;
+        }
+    }
+
     public AsociadoModel findByID(int id) {
         String query = "SELECT * FROM ASOCIADOS WHERE CODIGO = ?";
 
