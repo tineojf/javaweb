@@ -1,3 +1,5 @@
+<%@page import="persistence.dao.AsociadoDAO"%>
+<%@page import="persistence.models.AsociadoModel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -6,7 +8,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <!-- Stylesheet & icons -->
-        <link rel="stylesheet" href="../assets/style.css" />
+        <%
+            String cssPath = request.getContextPath() + "/assets/style.css";
+            String jsPath = request.getContextPath() + "/assets/script.css";
+            String logoPath = request.getContextPath() + "/images/bar.png";
+            String profilePath = request.getContextPath() + "/images/profile.png";
+            String servletPath = request.getContextPath() + "/svroutes";
+        %>
+        <link rel="stylesheet" href="<%= cssPath%>" />
+
         <link
             rel="stylesheet"
             href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
@@ -24,10 +34,13 @@
         </style>
     </head>
     <body>
+        <%
+            AsociadoDAO dao = new AsociadoDAO();
+        %>
         <nav>
             <div class="logo-name">
                 <div class="logo-image">
-                    <img src="../images/bar.png" alt="logo" />
+                    <img src="<%= logoPath%>" alt="logo" />
                 </div>
 
                 <span class="logo_name">Final Project</span>
@@ -36,19 +49,19 @@
             <div class="menu-items">
                 <ul class="nav-links">
                     <li>
-                        <a href="../svroutes?page=index">
+                        <a href='<%= servletPath + "?page=index"%>'>
                             <i class="uil uil-estate"></i>
                             <span class="link-name">Dahsboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../svroutes?page=get">
+                        <a href='<%= servletPath + "?page=get"%>'>
                             <i class="uil uil-apps"></i>
                             <span class="link-name">Associates</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../svroutes?page=delete">
+                        <a href='<%= servletPath + "?page=delete"%>'>
                             <i class="uil uil-chart"></i>
                             <span class="link-name">Delete</span>
                         </a>
@@ -73,7 +86,7 @@
         <div class="dashboard">
             <div class="top">
                 <i class="uil uil-bars sidebar-toggle"></i>
-                <img src="../images/profile.png" alt="profile" />
+                <img src="<%= profilePath%>" alt="profile" />
             </div>
 
             <div class="dash-content">
@@ -81,11 +94,16 @@
                     <div class="title">
                         <i class="uil uil-thumbs-up"></i>
                         <span class="text">Create Associate</span>
+                        <script>
+                            <% if (request.getAttribute("mensaje") != null) {%>
+                            alert("<%= request.getAttribute("mensaje")%>");
+                            <% }%>
+                        </script>
                     </div>
                 </div>
 
                 <div class="content ml">
-                    <form action="create.jsp" method="POST">
+                    <form action="../svcreate" method="POST">
                         <div class="form-columns">
                             <div>
                                 <span class="details"><strong>Nombre:</strong></span>
@@ -219,6 +237,6 @@
         </div>
 
         <!-- Javascript -->
-        <script src="../assets/script.js"></script>
+        <script src="<%= jsPath%>"></script>
     </body>
 </html>
