@@ -1,9 +1,3 @@
-<%-- 
-    Document   : get
-    Created on : May 1, 2024, 10:37:20 AM
-    Author     : tineo
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <!-- Stylesheet & icons -->
-        <link rel="stylesheet" href="assets/style.css" />
+        <link rel="stylesheet" href="../assets/style.css" />
         <link
             rel="stylesheet"
             href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
@@ -21,12 +15,10 @@
         <title>Guests</title>
     </head>
     <body>
-        <% String variable = (String) request.getAttribute("variable");%>
-
         <nav>
             <div class="logo-name">
                 <div class="logo-image">
-                    <img src="../images/bar.png" alt="" />
+                    <img src="../images/bar.png" alt="logo" />
                 </div>
 
                 <span class="logo_name">Final Project</span>
@@ -35,19 +27,19 @@
             <div class="menu-items">
                 <ul class="nav-links">
                     <li>
-                        <a href="index.jsp">
+                        <a href="../svget?page=index">
                             <i class="uil uil-estate"></i>
                             <span class="link-name">Dahsboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../routes/create.html">
+                        <a href="../svget?page=post">
                             <i class="uil uil-thumbs-up"></i>
                             <span class="link-name">Create</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../routes/delete.html">
+                        <a href="../svget?page=delete">
                             <i class="uil uil-chart"></i>
                             <span class="link-name">Delete</span>
                         </a>
@@ -72,12 +64,6 @@
         <section class="dashboard">
             <div class="top">
                 <i class="uil uil-bars sidebar-toggle"></i>
-
-                <div class="search-box">
-                    <i class="uil uil-search"></i>
-                    <input type="text" placeholder="Search here..." />
-                </div>
-
                 <img src="../images/profile.png" alt="profile" />
             </div>
 

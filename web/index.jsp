@@ -32,7 +32,7 @@
         <nav>
             <div class="logo-name">
                 <div class="logo-image">
-                    <img src="./images/bar.png" alt="" />
+                    <img src="./images/bar.png" alt="logo" />
                 </div>
 
                 <span class="logo_name">Final Project</span>
