@@ -181,7 +181,7 @@ public class AsociadoDAO {
             return "404: NOT FOUND";
         }
 
-        String query = "DELETE FROM ASOCIADOS WHERE _column = ? LIMIT 1";
+        String query = "DELETE FROM ASOCIADOS WHERE DNI = ? LIMIT 1";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, dni);
 

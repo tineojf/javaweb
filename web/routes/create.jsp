@@ -13,7 +13,8 @@
             String jsPath = request.getContextPath() + "/assets/script.js";
             String logoPath = request.getContextPath() + "/images/bar.png";
             String profilePath = request.getContextPath() + "/images/profile.png";
-            String servletPath = request.getContextPath() + "/svroutes";
+            String svroutesPath = request.getContextPath() + "/svroutes";
+            String svcreatePath = request.getContextPath() + "/svcreate";
         %>
         <link rel="stylesheet" href="<%= cssPath%>" />
 
@@ -34,9 +35,6 @@
         </style>
     </head>
     <body>
-        <%
-            AsociadoDAO dao = new AsociadoDAO();
-        %>
         <script>
             <% if (request.getAttribute("mensaje") != null) {%>
             alert("<%= request.getAttribute("mensaje")%>");
@@ -54,19 +52,19 @@
             <div class="menu-items">
                 <ul class="nav-links">
                     <li>
-                        <a href='<%= servletPath + "?page=index"%>'>
+                        <a href='<%= svroutesPath + "?page=index"%>'>
                             <i class="uil uil-estate"></i>
                             <span class="link-name">Dahsboard</span>
                         </a>
                     </li>
                     <li>
-                        <a href='<%= servletPath + "?page=get"%>'>
+                        <a href='<%= svroutesPath + "?page=get"%>'>
                             <i class="uil uil-apps"></i>
                             <span class="link-name">Associates</span>
                         </a>
                     </li>
                     <li>
-                        <a href='<%= servletPath + "?page=delete"%>'>
+                        <a href='<%= svroutesPath + "?page=delete"%>'>
                             <i class="uil uil-chart"></i>
                             <span class="link-name">Delete</span>
                         </a>
@@ -103,7 +101,7 @@
                 </div>
 
                 <div class="content ml">
-                    <form action="../svcreate" method="POST">
+                    <form action="<%= svcreatePath%>" method="POST">
                         <div class="form-columns">
                             <div>
                                 <span class="details"><strong>Nombre:</strong></span>
