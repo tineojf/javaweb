@@ -24,6 +24,8 @@ public class svroutes extends HttpServlet {
                 response.sendRedirect("routes/get.jsp");
             case "delete" ->
                 response.sendRedirect("routes/delete.jsp");
+            case "export" ->
+                response.sendRedirect("routes/export.jsp");
             default ->
                 response.sendRedirect("index.jsp");
         }

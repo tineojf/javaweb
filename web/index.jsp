@@ -56,6 +56,12 @@
                             <span class="link-name">Delete</span>
                         </a>
                     </li>
+                    <li>
+                        <a href='<%= servletPath + "?page=export"%>'>
+                            <i class="uil uil-chart"></i>
+                            <span class="link-name">Export</span>
+                        </a>
+                    </li>
                 </ul>
 
                 <ul class="logout-mode">
@@ -113,7 +119,12 @@
                     </div>
 
                     <div class="activity-data" id="1">
-                        <%AsociadoModel usuarioAdmin = dao.findByID(1);%>
+                        <%
+                            AsociadoModel usuarioAdmin = dao.findByID(1);
+                            if (usuarioAdmin == null) {
+                                usuarioAdmin = new AsociadoModel(1, "Deleted", "Admin", "Not Defined", "Not Defined", "103847", 10000, "Profesional", 70000, 0, "999888777", "Calle Principal");
+                            }
+                        %>
                         <div class="data names">
                             <span class="data-title"><strong>Código</strong></span>
                             <span class="data-list"><%= usuarioAdmin.getCodigo()%></span>
